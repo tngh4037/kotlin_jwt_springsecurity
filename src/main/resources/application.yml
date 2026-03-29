@@ -1,0 +1,31 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true # request/response 시 인코딩 강제
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/demo_db
+    username: root
+    password: 1234
+  jpa:
+    open-in-view: true # 영속성 컨텍스트가 트랜잭션 범위를 넘어서 레이어까지 유지되도록 설정
+    hibernate:
+      ddl-auto: create # table drop -> table create
+    properties:
+      hibernate:
+        show_sql: false # 로그에서 sql 찍도록 설정했기에 false로 함.
+        format_sql: true # 줄 맞춤
+        highlight_sql: true # 색 표시
+logging:
+  pattern:
+    console: "[%d{HH:mm:ss.SSS}][%-5level][%logger.%method:line%line] - %msg%n"
+  level:
+    org:
+      hibernate:
+        SQL: debug # SQL 실행시 로깅되도록 설정
+        type.descriptor.sql: trace
