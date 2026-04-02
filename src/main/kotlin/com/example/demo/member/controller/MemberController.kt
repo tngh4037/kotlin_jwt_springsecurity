@@ -1,6 +1,8 @@
 package com.example.demo.member.controller
 
+import com.example.demo.common.authority.TokenInfo
 import com.example.demo.common.dto.BaseResponse
+import com.example.demo.member.dto.LoginDto
 import com.example.demo.member.dto.MemberDtoRequest
 import com.example.demo.member.service.MemberService
 import jakarta.validation.Valid
@@ -22,5 +24,14 @@ class MemberController (
     fun signUp(@Valid @RequestBody memberDtoRequest: MemberDtoRequest): BaseResponse<Unit> { // 참고) resultCode 와 message 만 반환하고, data 는 응답시 사용하지 않으므로 Unit 사용
         val resultMsg: String = memberService.signUp(memberDtoRequest)
         return BaseResponse(message = resultMsg)
+    }
+
+    /**
+     * 로그인
+     */
+    @PostMapping("/login")
+    fun login(@RequestBody @Valid loginDto: LoginDto): BaseResponse<TokenInfo> {
+        val tokenInfo = memberService.login(loginDto)
+        return BaseResponse(data = tokenInfo)
     }
 }
