@@ -1,0 +1,11 @@
+# 패키지 구조
+- common
+  - dto: 애플리케이션 전반에 공통적으로 사용할 수 있는 DTO
+  - exception: 애플리케이션에서 사용하는 예외
+  - status: 애플리케이션에서 사용하는 상태값
+- member
+  - controller: endpoint 를 만들 컨트롤러
+  - service: 비즈니스 로직 처ㅗ리
+  - repository: db접근시 사용
+  - entity: db접근시 사용
+  - dto: endpoint 를 통해 전달받을 정보 ( dto는 기본적으로 data class 로 생성 )
