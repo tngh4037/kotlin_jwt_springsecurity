@@ -29,3 +29,5 @@ logging:
       hibernate:
         SQL: debug # SQL 실행시 로깅되도록 설정
         type.descriptor.sql: trace
+jwt:
+  secret: DadFufN4Oui8Bfv3ScFj6R9fyJ9hD45E6AGFsXgFsRhT4YSdSb # 암호화를 위한 key 설정 추가 ( 영문/숫자 아무런 조합으로 32자 이상이면 됨 )

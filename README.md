@@ -1,11 +1,14 @@
 # 패키지 구조
 - common
+  - annotation: Dto 유효성 검증을 위한 애노테이션 생성 
   - dto: 애플리케이션 전반에 공통적으로 사용할 수 있는 DTO
   - exception: 애플리케이션에서 사용하는 예외
   - status: 애플리케이션에서 사용하는 상태값
+  - authority: 권한 관련 기능을 분류 (인증/인가 처리)
+  - service: CustomUserDetailsService (인증/인가 처리)
 - member
   - controller: endpoint 를 만들 컨트롤러
-  - service: 비즈니스 로직 처ㅗ리
+  - service: 비즈니스 로직 처리
   - repository: db접근시 사용
   - entity: db접근시 사용
   - dto: endpoint 를 통해 전달받을 정보 ( dto는 기본적으로 data class 로 생성 )
