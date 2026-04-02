@@ -11,7 +11,7 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 data class MemberDtoRequest(
-    val id: Long?,
+    var id: Long?,
 
     @field: NotBlank
     @JsonProperty("loginId") // 사용자로부터는 _loginId로 요청이 오지 않는다 loginId로 온다. 따라서, loginId로 오면 _loginId와 연결되도록 해준다.
