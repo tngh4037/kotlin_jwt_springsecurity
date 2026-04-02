@@ -32,5 +32,9 @@ class Member(
     val gender: Gender,
 
     @Column(nullable = false, length = 30)
-    val email: String
+    val email: String,
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "member")
+    val memberRole: List<MemberRole>? = null
+
 )

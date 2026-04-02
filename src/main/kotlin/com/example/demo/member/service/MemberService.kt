@@ -1,16 +1,20 @@
 package com.example.demo.member.service
 
 import com.example.demo.common.exception.InvalidInputException
+import com.example.demo.common.status.Role
 import com.example.demo.member.dto.MemberDtoRequest
 import com.example.demo.member.entity.Member
+import com.example.demo.member.entity.MemberRole
 import com.example.demo.member.repository.MemberRepository
+import com.example.demo.member.repository.MemberRoleRepository
 import jakarta.transaction.Transactional
 import org.springframework.stereotype.Service
 
 @Service
 @Transactional
 class MemberService (
-    private val memberRepository: MemberRepository
+    private val memberRepository: MemberRepository,
+    private val memberRoleRepository: MemberRoleRepository
 ) {
 
     /**
@@ -25,6 +29,9 @@ class MemberService (
 
         member = memberDtoRequest.toEntity()
         memberRepository.save(member)
+
+        val memberRole: MemberRole = MemberRole(null, Role.MEMBER, member)
+        memberRoleRepository.save(memberRole)
 
         return "회원가입이 완료되었습니다."
     }
